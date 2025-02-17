@@ -14,21 +14,21 @@ def get_model_params(model):
     param_details = []
 
     for name, param in model.named_parameters():
+        print(name)
+        print(param.shape)
         param_count = param.numel()
         total_params += param_count
         param_details.append(f"{name}: {param_count} parameters")
+        # print(total_params)
 
     return total_params, param_details
 
 
+if __name__ == "__main__":
+    vocab_size = 50257  # The tokenizer size
+    model = TransformerClassifier(vocab_size=vocab_size)
+    model.load_state_dict(torch.load("models/my_trans.pth"))
+    model.eval()
+    print(model)
 
-vocab_size = 50257  # The tokenizer size
-model = TransformerClassifier(vocab_size=vocab_size)
-model.load_state_dict(torch.load("models/my_trans.pth"))
-model.eval()
-
-
-
-total_params, param_details=get_model_params(model)
-print(total_params)
-print(param_details)
+    get_model_params(model)
