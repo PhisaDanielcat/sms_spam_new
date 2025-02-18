@@ -1,4 +1,5 @@
-使用顺序
+使用顺序:
+
 0. pip install -r requirements.txt
 1. extract_dataset.py 下载sms_spam_dataset.zip数据集，并解压和划分训练集，验证集和测试集到datasets文件夹
 2. TransformerClassifier_model.py ，模型文件结构打印，可以调整
